@@ -248,6 +248,16 @@ extern "C"
                 AP_RemoveQueuedLocationScout(state, location_id);
             }
         }
+
+        if (AP_GetSlotDataInt(state, "shuffle_great_fairy_rewards") == 0)
+        {
+            for (int i = 0x00; i <= 0x04; ++i)
+            {
+                int64_t location_id = 0x3469420030000 | i;
+                AP_RemoveQueuedLocationScout(state, location_id);
+            }
+            AP_RemoveQueuedLocationScout(state, 0x3469420000086);
+        }
         
         for (int64_t i = AP_GetSlotDataInt(state, "starting_heart_locations"); i < 8; ++i)
         {
@@ -588,6 +598,11 @@ extern "C"
     {
         _return(ctx, AP_GetSlotDataInt(state, "skullsanity") != 2);
     }
+
+    DLLEXPORT void rando_great_fairy_rewards_disabled(uint8_t* rdram, recomp_context* ctx)
+    {
+        _return(ctx, AP_GetSlotDataInt(state, "shuffle_great_fairy_rewards") == 0);
+	}
     
     DLLEXPORT void rando_shopsanity_enabled(uint8_t* rdram, recomp_context* ctx)
     {
