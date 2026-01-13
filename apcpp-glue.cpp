@@ -598,11 +598,6 @@ extern "C"
     {
         _return(ctx, AP_GetSlotDataInt(state, "skullsanity") != 2);
     }
-
-    DLLEXPORT void rando_great_fairy_rewards_disabled(uint8_t* rdram, recomp_context* ctx)
-    {
-        _return(ctx, AP_GetSlotDataInt(state, "shuffle_great_fairy_rewards") == 0);
-	}
     
     DLLEXPORT void rando_shopsanity_enabled(uint8_t* rdram, recomp_context* ctx)
     {
