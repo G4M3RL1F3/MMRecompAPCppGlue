@@ -258,6 +258,12 @@ extern "C"
             }
             AP_RemoveQueuedLocationScout(state, 0x3469420000086);
         }
+
+        if (AP_GetSlotDataInt(state, "shuffle_spiderhouse_reward") == 0)
+        {
+            AP_RemoveQueuedLocationScout(state, 0x346942000008A);
+            AP_RemoveQueuedLocationScout(state, 0x3469420000009);
+        }
         
         for (int64_t i = AP_GetSlotDataInt(state, "starting_heart_locations"); i < 8; ++i)
         {
