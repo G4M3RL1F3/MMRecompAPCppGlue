@@ -335,6 +335,21 @@ extern "C"
             AP_RemoveQueuedLocationScout(state, 0x346942007C405);
             AP_RemoveQueuedLocationScout(state, 0x346942007C407);
         }
+
+        if (AP_GetSlotDataInt(state, "shuffle_treasure_chest_game") == 0)
+        {
+            AP_RemoveQueuedLocationScout(state, 0x3469420061705); // Human
+            AP_RemoveQueuedLocationScout(state, 0x346942006172A); // Deku
+            AP_RemoveQueuedLocationScout(state, 0x346942006170C); // Goron
+            AP_RemoveQueuedLocationScout(state, 0x3469420061704); // Zora
+        }
+        else if (AP_GetSlotDataInt(state, "shuffle_treasure_chest_game") == 1)
+        {
+            AP_RemoveQueuedLocationScout(state, 0x3469420061705); // Human
+            AP_RemoveQueuedLocationScout(state, 0x346942006172A); // Deku
+            AP_RemoveQueuedLocationScout(state, 0x3469420061704); // Zora
+        }
+        
         
         if (AP_GetSlotDataInt(state, "intro_checks") == 0)
         {
